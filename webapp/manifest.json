@@ -1,0 +1,118 @@
+{
+    "_version": "1.17.0",
+    "sap.app": {
+        "id": "igi.projectigi",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.4",
+            "toolsId": "9e2d65e4-6390-4fde-b2b5-c5632c02f476"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.71.70",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "igi.projectigi.i18n.i18n"
+                }
+            },
+            "Amigo":{
+                "type":"sap.ui.model.json.JSONModel",
+                "uri":"model/products.json"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "igi.projectigi.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": "",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "RouteView2",
+                    "pattern": "View2",
+                    "target": [
+                        "TargetView2"
+                    ]
+                }
+                
+            ],
+            "targets": {
+                "TargetView1": {
+                    "viewType": "XML",
+                    "transition": "fade",
+                    "clearControlAggregation": false,
+                    "viewId": "View1",
+                    "viewName": "View1"
+                },
+                "TargetView2": {
+                    "viewType": "XML",
+                    "transition": "flip",
+                    "clearControlAggregation": false,
+                    "viewId": "View2",
+                    "viewName": "View2"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "igi.projectigi.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

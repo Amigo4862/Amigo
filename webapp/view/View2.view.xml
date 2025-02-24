@@ -1,0 +1,63 @@
+<mvc:View controllerName="igi.projectigi.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:ui="sap.ui.table">
+    <Page id="View2" title="{i18n>title}" showNavButton="true" navButtonPress="onNavTo">
+        <content>
+            <OverflowToolbar>
+                <Input placeholder="SEARCH"  width="250px" showSuggestion="true"/>
+                <ToolbarSpacer/>
+                   <Button text="Set" press="onSet"></Button>
+                   <Button text="Get" press="onGet"/>
+                    <Button text="SORT" press="onSort"/>
+                 </OverflowToolbar>
+            <ui:Table  rows="{Amigo>/ProductCollection}">
+                <ui:columns>
+
+                    <ui:Column sortProperty="Name" filterProperty="Name">
+                        <ui:label>
+                        <Label text="Product ID" />
+                        </ui:label>
+                        <ui:template>
+                            <Text text="{Amigo>ProductId}"/>
+                        </ui:template>
+                    </ui:Column>
+                     <ui:Column>
+                        <ui:label>
+                        <Label text="Product Name" />
+                        </ui:label>
+                        <ui:template>
+                            <Text text="{Amigo>Name}"/>
+                        </ui:template>
+                    </ui:Column>
+                     
+                     <ui:Column hAlign="Center">
+                        <ui:label>
+                        <Label text="Price" />
+                        </ui:label>
+                        <ui:template>
+                            <Text text="{Amigo>Price}"/>
+                        </ui:template>
+                    </ui:Column>
+                     <ui:Column hAlign="Center">
+                        <ui:label>
+                        <Label text="Quantity" />
+                        </ui:label>
+                        <ui:template>
+                            <Text text="{Amigo>Quantity}"/>
+                        </ui:template>
+                    </ui:Column>
+                     <ui:Column>
+                        <ui:label>
+                        <Label text="Status" />
+                        </ui:label>
+                         <ui:template>
+                            <ObjectStatus text="{Amigo>Status}" state="{path:'Amigo>Status',formatter:'.formatter.onChange'}"/>
+                        </ui:template>
+                    </ui:Column>
+                
+                
+                </ui:columns>
+            </ui:Table>
+        </content>
+    </Page>
+</mvc:View>

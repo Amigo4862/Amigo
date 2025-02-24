@@ -1,0 +1,71 @@
+<mvc:View controllerName="igi.projectigi.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:t="sap.tnt" >
+    <Page id="page" title="{i18n>title}" >
+        <content>
+            
+            <OverflowToolbar>
+                <SearchField search="onSuggest" width="250px" id="searchFieldId"/>
+                <ToolbarSpacer/>
+                    <Button text="Busy Dialog" press="onBusyDialog"/>
+                    <Button text="VIEW-2" icon="sap-icon://detail-view" press="onView2" />
+                    <Button text="SORT" press="onSort"/>
+                 </OverflowToolbar>
+            <Table id="tableId" items="{path:'Amigo>/ProductCollection',sorter:{path:'MainCategory',group:true}}" growing="true" growingThreshold="15" inset="true">
+                <columns>
+                    <Column>
+                        <Label text="Product ID" />
+                    </Column>
+                    <Column>
+                        <Label text="Product Name" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Label text="Price" />
+                    </Column>
+                    <Column>
+                        <Label text="{i18n>quantityName}" />
+                    </Column>
+                    <Column>
+                        <Label text="Status" />
+                    </Column>
+                    <Column>
+                        <Label text="Action" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{Amigo>ProductId}"></Text>
+                            <Input value="{Amigo>Name}" ></Input>
+                            <Text text="{Amigo>Price}"  ></Text>
+                            <ObjectNumber number="{Amigo>Quantity}" state="{path:'Amigo>Quantity',formatter:'.formatter.onReplace'}"></ObjectNumber>
+                            <ObjectStatus text="{Amigo>Status}" state="{path:'Amigo>Status',formatter:'.formatter.onChange'}"></ObjectStatus>
+                            <HBox>
+                                <Button icon="sap-icon://edit" press="onEdit" class="sapUiTinyMarginEnd" type="Accept"/>
+                                <Button icon="sap-icon://delete" press="onDelete" type="Reject"/>
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <List items="{Amigo>/ProductCollection}" growing="true" growingThreshold="10" >
+                <items>
+                    <ObjectListItem title="{Amigo>Name}" type="Navigation" press="onObject" number="{Amigo>Price}" numberState="{=${Amigo>Price}>500?'Error':'Success'}" ></ObjectListItem>
+                </items>
+            </List>
+
+       	<t:NavigationList id="navigationList" width="320px" selectedKey="subItem3" class="sapUiSmallMargin">
+		<t:NavigationListItem text="Item 1" key="rootItem1" icon="sap-icon://employee">
+			<t:NavigationListItem text="Sub Item 1"/>
+			<t:NavigationListItem text="Sub Item 2"/>
+			<t:NavigationListItem text="Sub Item 3" key="subItem3"/>
+			<t:NavigationListItem text="Sub Item 4"/>
+			<t:NavigationListItem text="Invisible Sub Item 5" visible="false"/>
+			<t:NavigationListItem text="Invisible Sub Item 6" visible="false"/>
+		</t:NavigationListItem>
+        </t:NavigationList>
+
+
+        </content>
+    </Page>
+</mvc:View>

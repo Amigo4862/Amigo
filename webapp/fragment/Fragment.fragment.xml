@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="dialogId" title="Row Details" xmlns:f="sap.ui.layout.form">
+        <f:SimpleForm >
+             <Label text="Product ID"/>
+             <Input editable="false" value="{Amigo>/oPayLoad/ProductId}"/>
+             <Label text="Product Name"/>
+             <Input editable="true" value="{Amigo>/oPayLoad/Name}"/>
+             <Label text="Status"/>
+             <Input editable="false" value="{Amigo>/oPayLoad/Status}"/>
+             <Label text="Price"/>
+             <Input editable="false" value="{Amigo>/oPayLoad/Price}"/>
+             <Label text="Quantity"/>
+             <Input editable="true" value="{Amigo>/oPayLoad/Quantity}"/>
+        </f:SimpleForm>
+            <beginButton>
+                <Button icon="sap-icon://accept" text="SAVE" press="onSave" type="Accept"/>                
+            </beginButton>
+            <endButton>
+            <Button  icon="sap-icon://cancel" text="CANCEL" press="onCancel" type="Reject" />
+            </endButton>
+    </Dialog>
+
+    
+    
+
+
+</core:FragmentDefinition>
